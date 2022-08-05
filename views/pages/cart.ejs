@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>T-shirt store</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script src="js/jquery.min.js"></script>
+<!--script-->
+</head>
+<body> 
+	<!--header-->
+	<div class="header">
+		<div class="top-header">
+			<div class="container">
+				<div class="top-header-left">
+					<ul class="support">
+						<li><a href="#"><label> </label></a></li>
+						<li><a href="#">24x7 live<span class="live"> support</span></a></li>
+					</ul>
+					<ul class="support">
+						<li class="van"><a href="#"><label> </label></a></li>
+						<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="top-header-right">
+				 <div class="down-top">		
+						  <select class="in-drop">
+							  <option value="English" class="in-of">English</option>
+							  <option value="Japanese" class="in-of">Japanese</option>
+							  <option value="French" class="in-of">French</option>
+							  <option value="German" class="in-of">German</option>
+							</select>
+					 </div>
+					<div class="down-top top-down">
+						  <select class="in-drop">
+						  
+						  <option value="Dollar" class="in-of">Dollar</option>
+						  <option value="Yen" class="in-of">Yen</option>
+						  <option value="Euro" class="in-of">Euro</option>
+							</select>
+					 </div>
+					 <!---->
+					<div class="clearfix"> </div>	
+				</div>
+				<div class="clearfix"> </div>		
+			</div>
+		</div>
+        
+        <div class="bottom-header">
+            <div class="container">
+                <div class="header-bottom-left">
+                    <div class="logo">
+                        <a href="home"><img src="images/logo.png" alt=" "></a>
+                    </div>
+                    <div class="search">
+                        <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                        <input type="submit" value="SEARCH">
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="header-bottom-right">					
+					<ul class="login">
+						<% if(typeof user!== 'undefined') { %>
+						<li><a href="login-show"><span> </span>
+							<strong><%= user %></strong>
+						</a></li> |
+						<% }else{ %>
+
+						<li><a href="login-show"><span> </span>LOGIN</a></li> |
+						<li><a href="signup-show">SIGNUP</a></li>
+						<% } %>
+					</ul>
+                        <div class="cart"><a href="cart-show"><span> </span>CART</a></div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>	
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="container" style="min-height:500px">
+		<!-- ==== cart =========-->
+        <div class="row">
+            <h3 style="    letter-spacing: -1px;
+			font-size: 14px;
+			font-weight: 600;
+			font-style: italic;">My Cart <%= arr.length   %></h3>
+        </div>
+        <% if(!arr.length){ %>
+        <div class="row">
+<h6>Noting have been added to your cart !</h6>
+<a href="home" class="black-btn">Back to shopping</a>
+       </div>
+<%  }
+for(var c=0;c<(arr.length);c++){
+    product_sum=arr[c]['qty']*arr[c]['sp'];
+    id=arr[c]['product_id'];
+%>
+            
+				<div class="row cart-row" >
+					<div class="col-md-2">
+						<a href="single?id=<%= id %>">
+                            <img src="images/<%= arr[c]['pic']%>" width="70" class="img-cart-thumb">
+                        </a>
+					</div>
+                    <div class="col-md-2">
+                        <a href="single?id=<%= id %>">
+                        <%= arr[c]['title']%>
+                       </a>
+                </div>
+					<div class="col-md-1"><%= arr[c]['qty']%>
+					</div>
+
+					<div class="col-md-2">
+						<% if(arr[c]['mrp'] && (arr[c]['mrp']!=arr[c]['sp'])){ %>
+						<span class="cart-mrp">Rs. <%= arr[c]['mrp']%></span><br>
+						<% } %> 
+						Rs. <%= arr[c]['sp']%>
+					</div>
+
+						<div class="col-md-3"><strong>Rs. <%= product_sum %></strong>
+					</div>
+                    <div class="col-md-1">
+<a href="delete-cart/<%= id%>"><img src="images/bin.png" width="21"></a>
+
+                    </div>
+				</div>
+
+<% } %>
+                <br><Br>
+                    <% if(arr.length){ %>
+				<div class="row">
+
+					<ul class="pull-right">
+							<li><a href="checkout-show" class="btn account-btn">PROCEED CART</a></li>
+							
+
+					</ul>
+
+				</div>
+                <% } %>
+<!-- ===== cart ============-->
+     </div>
+	<!---->
+	<!---->
+	<div class="footer" style="background:black;padding-top:30px;padding-bottom: 30px;color:white;margin-top:80px">
+			<div class="container">
+				<strong>All Rights Reserved</strong>
+			</div>
+		</div>
+</body>
+</html>

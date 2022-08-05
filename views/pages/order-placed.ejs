@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>T-shirt store</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script src="js/jquery.min.js"></script>
+<!--script-->
+</head>
+<body> 
+	<!--header-->
+	<div class="header">
+		<div class="top-header">
+			<div class="container">
+				<div class="top-header-left">
+					<ul class="support">
+						<li><a href="#"><label> </label></a></li>
+						<li><a href="#">24x7 live<span class="live"> support</span></a></li>
+					</ul>
+					<ul class="support">
+						<li class="van"><a href="#"><label> </label></a></li>
+						<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="top-header-right">
+				 <div class="down-top">		
+						  <select class="in-drop">
+							  <option value="English" class="in-of">English</option>
+							  <option value="Japanese" class="in-of">Japanese</option>
+							  <option value="French" class="in-of">French</option>
+							  <option value="German" class="in-of">German</option>
+							</select>
+					 </div>
+					<div class="down-top top-down">
+						  <select class="in-drop">
+						  
+						  <option value="Dollar" class="in-of">Dollar</option>
+						  <option value="Yen" class="in-of">Yen</option>
+						  <option value="Euro" class="in-of">Euro</option>
+							</select>
+					 </div>
+					 <!---->
+					<div class="clearfix"> </div>	
+				</div>
+				<div class="clearfix"> </div>		
+			</div>
+		</div>
+        
+        <div class="bottom-header">
+            <div class="container">
+                <div class="header-bottom-left">
+                    <div class="logo">
+                        <a href="home"><img src="images/logo.png" alt=" "></a>
+                    </div>
+                    <div class="search">
+                        <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                        <input type="submit" value="SEARCH">
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="header-bottom-right">					
+					<ul class="login">
+						<% if(typeof user!== 'undefined') { %>
+						<li><span><img src="images/user.png" ></span><a href="login-show" >
+							<strong><%= user %></strong>
+						</a></li> |
+						<% }else{ %>
+
+						<li><a href="login-show"><span> </span>LOGIN</a></li> |
+						<li><a href="signup-show">SIGNUP</a></li>
+						<% } %>
+					</ul>
+                        <div class="cart"><a href="cart-show"><span> </span>CART</a></div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>	
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="container">
+<!-- ==== Mesaage body part starts  =========-->
+       <div class="row">
+
+    
+<h3 class="alert alert-success" style="    font-size: 13px;
+font-weight: 600;">Congratulations <%= order_arr[0]['full_name'] %> ! Your order has been placed successfully with order ID : 12345.</h6>
+<ul style="    font-weight: bold;
+font-style: italic;
+margin-left: 23%;
+margin-bottom: 23vh;
+padding-top: 20px;">
+<li>Order Id : <%= order_arr[0]['order_id'] %></li>
+<li>Customer : <%= order_arr[0]['full_name'] %></li>
+<li>Registered Email : <%= order_arr[0]['email'] %> </li>
+<li>Mobile : <%= order_arr[0]['mobile'] %></li>
+<li>Bill Amount : INR <%= order_arr[0]['bill'] %> </li>
+</ul>
+
+       </div>
+<!-- ===== Message body part ends  ============-->
+     </div>
+	<!---->
+	<!---->
+	<div class="footer" style="background:black;padding-top:30px;padding-bottom: 30px;color:white;margin-top:80px">
+			<div class="container">
+				<strong>All Rights Reserved</strong>
+			</div>
+		</div>
+</body>
+</html>
